@@ -37,6 +37,27 @@ function imprimirContactos() {
   }
 }
 
+function actualizarContacto(id, nuevosDatos) {
+  for (let i = 0; i < listaContactos.length; i++) {
+    if (listaContactos[i].id === id) {
+      listaContactos[i].nombres =
+        nuevosDatos.nombres || listaContactos[i].nombres;
+      listaContactos[i].apellidos =
+        nuevosDatos.apellidos || listaContactos[i].apellidos;
+      listaContactos[i].telefono =
+        nuevosDatos.telefono || listaContactos[i].telefono;
+      listaContactos[i].ubicaciones =
+        nuevosDatos.ubicaciones || listaContactos[i].ubicaciones;
+      listaContactos[i].ciudad = nuevosDatos.ciudad || listaContactos[i].ciudad;
+      listaContactos[i].direccion =
+        nuevosDatos.direccion || listaContactos[i].direccion;
+      console.log("Contacto actualizado:", listaContactos[i]);
+      return;
+    }
+  }
+  console.log("El contacto no existe en la lista.");
+}
+
 let nuevoContacto = {
   id: 1,
   nombres: "Juan Carlos",
@@ -47,3 +68,12 @@ let nuevoContacto = {
 };
 
 agregarContacto(nuevoContacto);
+
+imprimirContactos();
+
+let datosActualizados = {
+  telefono: "987654321",
+  direccion: "Avenida 2",
+};
+
+actualizarContacto(1, datosActualizados);
