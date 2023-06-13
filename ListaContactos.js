@@ -46,8 +46,6 @@ function actualizarContacto(id, nuevosDatos) {
         nuevosDatos.apellidos || listaContactos[i].apellidos;
       listaContactos[i].telefono =
         nuevosDatos.telefono || listaContactos[i].telefono;
-      listaContactos[i].ubicaciones =
-        nuevosDatos.ubicaciones || listaContactos[i].ubicaciones;
       listaContactos[i].ciudad = nuevosDatos.ciudad || listaContactos[i].ciudad;
       listaContactos[i].direccion =
         nuevosDatos.direccion || listaContactos[i].direccion;
@@ -72,8 +70,10 @@ agregarContacto(nuevoContacto);
 imprimirContactos();
 
 let datosActualizados = {
-  telefono: "987654321",
-  direccion: "Avenida 2",
+  telefono: "9999-9999",
+  direccion: "Calle principal, Avenida 2",
 };
 
 actualizarContacto(1, datosActualizados);
+
+borrarContacto(1);
